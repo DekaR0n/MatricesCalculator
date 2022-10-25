@@ -3,4 +3,4 @@ project(MatricesCalculator C)
 
 set(CMAKE_C_STANDARD 23)
 
-add_executable(MatricesCalculator main.c)
+add_executable(MatricesCalculator matrices.c)
