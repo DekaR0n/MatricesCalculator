@@ -16,7 +16,7 @@ void destructor(struct matric Matric);
 
 struct matric *fill(struct matric Matric);
 
-struct matric *fillRandom(struct matric Matric, int d1, int d2);
+struct matric *fillRandom(struct matric *Matric, int d1, int d2);
 
 struct matric *summarize(struct matric Matric1, struct matric Matric2);
 
@@ -24,7 +24,7 @@ struct matric *product(struct matric Matric1, struct matric Matric2);
 
 struct matric *transporant(struct matric *Matric);
 
-struct matric *copy(struct matric Matric);
+struct matric *copy(struct matric *Matric, struct matric *CopyMatric);
 
 void showMatric(struct matric *Matric);
 

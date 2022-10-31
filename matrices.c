@@ -34,24 +34,36 @@ struct matric *summarize(struct matric Matric1, struct matric Matric2) {
     int n, m;
     scanf("%d", &n);
     scanf("%d", &m);
-    struct matric Matric;
+    struct matric *Matric;
     Matric.array = (int **) newMatric(n, m);
     for (int i = 0; i < Matric1.size_n; ++i) {
         for (int j = 0; j < Matric1.size_m; j++) {
             Matric.array[i][j] = Matric1.array[i][j] + Matric2.array[i][j];
         }
     }
-    return &Matric;
+    return Matric;
 }
 
-struct matric *fillRandom(struct matric Matric, int d1, int d2) {
+struct matric *fillRandom(struct matric *Matric, int d1, int d2) {
     srand(time(NULL));
-    int random = d1 + rand() % d2;
-
+    for (int i = 0; i < Matric->size_n; i++) {
+        for (int j = 0; j < Matric->size_m; j++) {
+            Matric->array[i][j] = d1 + rand() % d2;
+        }
+    }
+    return Matric;
 }
 
 struct matric *product(struct matric Matric1, struct matric Matric2) {
-
+    struct matric *Matric = newMatric(Matric.size_n, Matric2.size_m);
+    for (int i =0;i<Matric->size_n; i++){
+        for (int j = 0; j < Matric->size_m; ++j) {
+            for (int k = 0; k < Matric1.size_m; ++k) {
+                Matric->array[i][j] += Matric1.array[i][k]*Matric2.array[k][j];
+            }
+        }
+    }
+    return Matric;
 }
 
 struct matric *transporant(struct matric *Matric) {
@@ -65,8 +77,10 @@ struct matric *transporant(struct matric *Matric) {
     return Tmatric;
 }
 
-struct matric *copy(struct matric Matric) {
-
+struct matric *copy(struct matric *Matric, struct matric *CopyMatric) {
+    CopyMatric= newMatric(Matric->size_n, Matric->size_m);
+    CopyMatric->array = Matric->array;
+    return CopyMatric;
 }
 
 void showMatric(struct matric *Matric) {
@@ -78,9 +92,9 @@ void showMatric(struct matric *Matric) {
     }
 }
 
-int main() {
+/*int main() {
     /*  struct matric Matric;
-      destructor(Matric);*/
+      destructor(Matric);
     struct matric *Matric;
     Matric = newMatric(3, 8);
 
@@ -91,5 +105,5 @@ int main() {
     }
     showMatric(Matric);
 
-    return 0;
-}
+return 0;
+}*/
