@@ -12,6 +12,7 @@ struct matric *newMatric(int size_n, int size_m) {
     for (int i = 0; i < size_n; i++) {
         currentMatric->array[i] = (int *) malloc(size_m * sizeof(int));
     }
+    return currentMatric;
 };
 
 void destructor(struct matric Matric) {
@@ -40,29 +41,55 @@ struct matric *summarize(struct matric Matric1, struct matric Matric2) {
             Matric.array[i][j] = Matric1.array[i][j] + Matric2.array[i][j];
         }
     }
+    return &Matric;
 }
 
-struct matric *fillRandom(struct matric Matric) {
+struct matric *fillRandom(struct matric Matric, int d1, int d2) {
     srand(time(NULL));
-    int random = rand()
+    int random = d1 + rand() % d2;
+
 }
 
 struct matric *product(struct matric Matric1, struct matric Matric2) {
 
 }
 
-struct matric *transporant(struct matric Matric) {
+struct matric *transporant(struct matric *Matric) {
+    struct matric *Tmatric = newMatric(Matric->size_m, Matric->size_n);
+    for (int i = 0; i < Matric->size_n; i++) {
+        for (int j = 0; j < Matric->size_m; j++) {
+            Tmatric->array[i][j] = Matric->array[j][i];
+        }
 
+    }
+    return Tmatric;
 }
 
 struct matric *copy(struct matric Matric) {
 
 }
 
-void showMatric(struct matric Matric) {
-
+void showMatric(struct matric *Matric) {
+    for (int i = 0; i < Matric->size_n; i++) {
+        for (int j = 0; j < Matric->size_m; j++) {
+            printf("%d ", Matric->array[i][j]);
+        }
+        printf("\n");
+    }
 }
 
 int main() {
+    /*  struct matric Matric;
+      destructor(Matric);*/
+    struct matric *Matric;
+    Matric = newMatric(3, 8);
+
+    for (int i = 0; i < Matric->size_n; i++) {
+        for (int j = 0; j < Matric->size_m; j++) {
+            Matric->array[i][j] = 234;
+        }
+    }
+    showMatric(Matric);
+
     return 0;
 }
