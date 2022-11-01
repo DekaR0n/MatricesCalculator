@@ -14,7 +14,7 @@ struct matric *newMatric(int size_n, int size_m);
 
 void destructor(struct matric Matric);
 
-struct matric *fill(struct matric Matric);
+struct matric *fill(struct matric *Matric);
 
 struct matric *fillRandom(struct matric *Matric, int d1, int d2);
 
