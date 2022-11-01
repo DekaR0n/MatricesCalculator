@@ -112,4 +112,3 @@ void showMatric(struct matric *Matric) {
         printf("\n");
     }
 }
-
