@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include "matrices.h"
 #include "time.h"
+#include "windows.h"
 
 //
 //
 //
 struct matrix *newMatrix(int size_n, int size_m) {
     struct matrix *currentMatrix = (struct matrix *) malloc(sizeof(struct matrix));
-
+//
     currentMatrix->size_n = size_n;
     currentMatrix->size_m = size_m;
     currentMatrix->array = (int **) malloc(size_n * sizeof(int));
@@ -108,10 +109,13 @@ struct matrix *copy(struct matrix *Matric, struct matrix *CopyMatric) {
 //
 //
 void showMatrix(struct matrix *Matric) {
+//    system("chcp 65001");
+//    SetConsoleOutputCP(CP_UTF8);
     for (int i = 0; i < Matric->size_n; i++) {
         for (int j = 0; j < Matric->size_m; j++) {
             printf("%d ", Matric->array[i][j]);
         }
         printf("\n");
     }
+    printf("%s","Вы молодец!");
 }

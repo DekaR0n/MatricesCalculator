@@ -20,6 +20,7 @@ int main() {
     printf("\n\n");
     Matrix = transporant(Matrix);
     showMatrix(Matrix);
+
    // struct matrix *Copy;
 
     return 0;
