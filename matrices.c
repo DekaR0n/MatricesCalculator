@@ -6,45 +6,45 @@
 //
 //
 //
-struct matric *newMatric(int size_n, int size_m) {
-    struct matric *currentMatric = (struct matric *) malloc(sizeof(struct matric));
+struct matrix *newMatrix(int size_n, int size_m) {
+    struct matrix *currentMatrix = (struct matrix *) malloc(sizeof(struct matrix));
 
-    currentMatric->size_n = size_n;
-    currentMatric->size_m = size_m;
-    currentMatric->array = (int **) malloc(size_n * sizeof(int));
+    currentMatrix->size_n = size_n;
+    currentMatrix->size_m = size_m;
+    currentMatrix->array = (int **) malloc(size_n * sizeof(int));
     for (int i = 0; i < size_n; i++) {
-        currentMatric->array[i] = (int *) malloc(size_m * sizeof(int));
+        currentMatrix->array[i] = (int *) malloc(size_m * sizeof(int));
     }
-    return currentMatric;
+    return currentMatrix;
 };
 
 //
 //
 //
-void destructor(struct matric Matric) {
-    for (int i = 0; i < Matric.size_n; i++) {
-        free(Matric.array[i]);
+void destructor(struct matrix Matrix) {
+    for (int i = 0; i < Matrix.size_n; i++) {
+        free(Matrix.array[i]);
     }
-    free(Matric.array);
+    free(Matrix.array);
 }
 
 //
 //
 //
-struct matric *fill(struct matric *Matric) {
-    for (int i = 0; i < Matric->size_n; i++) {
-        for (int j = 0; j < Matric->size_m; j++) {
-            scanf("%d", &Matric->array[i][j]);
+struct matrix *fill(struct matrix *Matrix) {
+    for (int i = 0; i < Matrix->size_n; i++) {
+        for (int j = 0; j < Matrix->size_m; j++) {
+            scanf("%d", &Matrix->array[i][j]);
         }
     }
-    return Matric;
+    return Matrix;
 }
 
 //
 //
 //
-struct matric *summarize(struct matric Matric1, struct matric Matric2) {
-    struct matric *Matric = newMatric(Matric1.size_n, Matric1.size_m);
+struct matrix *summarize(struct matrix Matric1, struct matrix Matric2) {
+    struct matrix *Matric = newMatrix(Matric1.size_n, Matric1.size_m);
     for (int i = 0; i < Matric1.size_n; ++i) {
         for (int j = 0; j < Matric1.size_m; j++) {
             Matric->array[i][j] = Matric1.array[i][j] + Matric2.array[i][j];
@@ -56,20 +56,22 @@ struct matric *summarize(struct matric Matric1, struct matric Matric2) {
 //
 //
 //
-struct matric *fillRandom(struct matric *Matric, int d1, int d2) {
+struct matrix *fillRandom(struct matrix *Matric, int d1, int d2) {
     srand(time(NULL));
+    //  throw (new int**);
     for (int i = 0; i < Matric->size_n; i++) {
         for (int j = 0; j < Matric->size_m; j++) {
-            Matric->array[i][j] = d1 + rand() % d2;
+            Matric->array[i][j] = d1 + rand() % (d2 - d1 + 1);
         }
     }
     return Matric;
 }
+
 //
 //
 //
-struct matric *product(struct matric Matric1, struct matric Matric2) {
-    struct matric *Matric = newMatric(Matric1.size_n, Matric2.size_m);
+struct matrix *product(struct matrix Matric1, struct matrix Matric2) {
+    struct matrix *Matric = newMatrix(Matric1.size_n, Matric2.size_m);
     for (int i = 0; i < Matric->size_n; i++) {
         for (int j = 0; j < Matric->size_m; ++j) {
             for (int k = 0; k < Matric1.size_m; ++k) {
@@ -79,24 +81,25 @@ struct matric *product(struct matric Matric1, struct matric Matric2) {
     }
     return Matric;
 }
-//
-//
-//
-struct matric *transporant(struct matric *Matric) {
-    struct matric *Tmatric = newMatric(Matric->size_m, Matric->size_n);
-    for (int i = 0; i < Matric->size_n; i++) {
-        for (int j = 0; j < Matric->size_m; j++) {
-            Tmatric->array[i][j] = Matric->array[j][i];
-        }
 
+//
+//
+//
+struct matrix *transporant(struct matrix *Matrix) {
+    struct matrix *Tmatrix = newMatrix(Matrix->size_m, Matrix->size_n);
+    for (int i = 0; i < Matrix->size_m; i++) {
+        for (int j = 0; j < Matrix->size_n; j++) {
+            Tmatrix->array[i][j] = Matrix->array[j][i];
+        }
     }
-    return Tmatric;
+    return Tmatrix;
 }
+
 //
 //
 //
-struct matric *copy(struct matric *Matric, struct matric *CopyMatric) {
-    CopyMatric = newMatric(Matric->size_n, Matric->size_m);
+struct matrix *copy(struct matrix *Matric, struct matrix *CopyMatric) {
+    CopyMatric = newMatrix(Matric->size_n, Matric->size_m);
     CopyMatric->array = Matric->array;
     return CopyMatric;
 }
@@ -104,7 +107,7 @@ struct matric *copy(struct matric *Matric, struct matric *CopyMatric) {
 //
 //
 //
-void showMatric(struct matric *Matric) {
+void showMatrix(struct matrix *Matric) {
     for (int i = 0; i < Matric->size_n; i++) {
         for (int j = 0; j < Matric->size_m; j++) {
             printf("%d ", Matric->array[i][j]);

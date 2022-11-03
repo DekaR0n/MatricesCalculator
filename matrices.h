@@ -4,28 +4,28 @@
 #include "stdio.h"
 #include <stdlib.h>
 
-struct matric {
+struct matrix {
     int size_n;
     int size_m;
     int **array;
 };
 
-struct matric *newMatric(int size_n, int size_m);
+struct matrix *newMatrix(int size_n, int size_m);
 
-void destructor(struct matric Matric);
+void destructor(struct matrix Matrix);
 
-struct matric *fill(struct matric *Matric);
+struct matrix *fill(struct matrix *Matrix);
 
-struct matric *fillRandom(struct matric *Matric, int d1, int d2);
+struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2);
 
-struct matric *summarize(struct matric Matric1, struct matric Matric2);
+struct matrix *summarize(struct matrix Matrix1, struct matrix Matrix2);
 
-struct matric *product(struct matric Matric1, struct matric Matric2);
+struct matrix *product(struct matrix Matrix1, struct matrix Matrix2);
 
-struct matric *transporant(struct matric *Matric);
+struct matrix *transporant(struct matrix *Matrix);
 
-struct matric *copy(struct matric *Matric, struct matric *CopyMatric);
+struct matrix *copy(struct matrix *Matrix, struct matrix *CopyMatrix);
 
-void showMatric(struct matric *Matric);
+void showMatrix(struct matrix *Matrix);
 
 #endif //__matrices__
