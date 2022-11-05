@@ -71,12 +71,13 @@ struct matrix *fillRandom(struct matrix *Matric, int d1, int d2) {
 //
 //
 //
-struct matrix *product(struct matrix Matric1, struct matrix Matric2) {
-    struct matrix *Matric = newMatrix(Matric1.size_n, Matric2.size_m);
-    for (int i = 0; i < Matric->size_n; i++) {
-        for (int j = 0; j < Matric->size_m; ++j) {
-            for (int k = 0; k < Matric1.size_m; ++k) {
-                Matric->array[i][j] += Matric1.array[i][k] * Matric2.array[k][j];
+struct matrix *product(struct matrix *Matric1, struct matrix *Matric2) {
+    struct matrix *Matric = newMatrix(Matric1->size_n, Matric2->size_m);
+    for (int i = 0; i < Matric1->size_n; i++) {
+        for (int j = 0; j < Matric2->size_m; j++) {
+            Matric->array[i][j] = 0;
+            for (int k = 0; k < Matric1->size_m; k++) {
+                Matric->array[i][j] += Matric1->array[i][k] * Matric2->array[k][j];
             }
         }
     }
@@ -109,13 +110,10 @@ struct matrix *copy(struct matrix *Matric, struct matrix *CopyMatric) {
 //
 //
 void showMatrix(struct matrix *Matric) {
-//    system("chcp 65001");
-//    SetConsoleOutputCP(CP_UTF8);
     for (int i = 0; i < Matric->size_n; i++) {
         for (int j = 0; j < Matric->size_m; j++) {
             printf("%d ", Matric->array[i][j]);
         }
         printf("\n");
     }
-    printf("%s","Вы молодец!");
 }

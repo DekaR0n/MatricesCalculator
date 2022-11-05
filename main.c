@@ -10,17 +10,20 @@
 int main() {
     struct matrix *Matrix = newMatrix(2, 4);
 
-  /*  for (int i = 0; i < Matrix->size_n; i++) {
-        for (int j = 0; j < Matrix->size_m; j++) {
-            Matrix->array[i][j] = i == j + 1 ? 15 : 2;
-        }
-    }*/
     fillRandom(Matrix,10,50);
     showMatrix(Matrix);
     printf("\n\n");
     Matrix = transporant(Matrix);
     showMatrix(Matrix);
 
+    struct matrix *Matrix1 =newMatrix(3, 3);
+    struct matrix *Matrix2 =newMatrix(3, 1);
+    Matrix1 = fillRandom(Matrix1, 4, 5);
+    Matrix2 = fillRandom(Matrix2, 2, 4);
+    showMatrix(Matrix1);
+    showMatrix(Matrix2);
+    struct matrix *MatrixProduct = product(Matrix1,Matrix2);
+    showMatrix(MatrixProduct);
    // struct matrix *Copy;
 
     return 0;

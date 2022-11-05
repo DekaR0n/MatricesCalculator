@@ -20,7 +20,7 @@ struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2);
 
 struct matrix *summarize(struct matrix Matrix1, struct matrix Matrix2);
 
-struct matrix *product(struct matrix Matrix1, struct matrix Matrix2);
+struct matrix *product(struct matrix *Matrix1, struct matrix *Matrix2);
 
 struct matrix *transporant(struct matrix *Matrix);
 
