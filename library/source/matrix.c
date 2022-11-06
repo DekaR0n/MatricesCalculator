@@ -1,8 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "matrices.h"
+#include "../matrixlib.h"
 #include "time.h"
-#include "windows.h"
 
 //
 //
@@ -17,7 +16,7 @@ struct matrix *newMatrix(int size_n, int size_m) {
         currentMatrix->array[i] = (int *) malloc(size_m * sizeof(int));
     }
     return currentMatrix;
-};
+}
 
 //
 //

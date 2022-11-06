@@ -1,5 +1,5 @@
-#ifndef __matrices__
-#define __matrices__
+#ifndef __matrixlib__
+#define __matrixlib__
 
 #include "stdio.h"
 #include <stdlib.h>
@@ -13,7 +13,6 @@ struct matrix {
 struct matrix *newMatrix(int size_n, int size_m);
 
 void destructor(struct matrix *Matrix);
-
 
 struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2);
 
@@ -29,4 +28,4 @@ struct matrix *copy(struct matrix *Matrix, struct matrix *CopyMatrix);
 
 void showMatrix(struct matrix *Matrix);
 
-#endif //__matrices__
+#endif //__matrixlib__

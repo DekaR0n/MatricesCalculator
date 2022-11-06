@@ -3,9 +3,8 @@
 //
 
 #include <stdio.h>
-#include <stdlib.h>
-#include "matrices.h"
-#include "time.h"
+#include "../library/matrixlib.h"
+#include "../library/source/matrix.c"
 
 int main() {
     struct matrix *Matrix = newMatrix(2, 4);
