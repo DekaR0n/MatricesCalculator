@@ -31,10 +31,14 @@ int main() {
     printf("Сумма матриц №3 и №4 :\n");
     showMatrix(MatrixProducts);
     MatrixProducts = multiplication(Matrix3, Matrix4);
-    printf("\n\n");
     printf("Произведение матриц №3 и №4 :\n");
     showMatrix(MatrixProducts);
-
+    MatrixProducts = difference(Matrix3, Matrix4);
+    printf("Разность матриц №3 и №4 :\n");
+    showMatrix(MatrixProducts);
+    destructor(MatrixProducts);
+    printf("Удаление матрицы :\n");
+    showMatrix(MatrixProducts);
    /* struct matrix *Matrix1 = newMatrix(3, 3);
     struct matrix *Matrix2 = newMatrix(3, 1);
     Matrix1 = fillRandom(Matrix1, 4, 5);
