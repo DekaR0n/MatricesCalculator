@@ -6,8 +6,8 @@
 //
 //
 //
-struct matrix *newMatrix(int size_n, int size_m) {
-    struct matrix *currentMatrix = (struct matrix *) malloc(sizeof(struct matrix));
+matrix *newMatrix(int size_n, int size_m) {
+    matrix *currentMatrix = (matrix *) malloc(sizeof(matrix));
 
     currentMatrix->size_n = size_n;
     currentMatrix->size_m = size_m;
@@ -21,7 +21,7 @@ struct matrix *newMatrix(int size_n, int size_m) {
 //
 //
 //
-void destructor(struct matrix *Matrix) {
+void destructor(matrix *Matrix) {
     for (int i = 0; i < Matrix->size_n; i++) {
         free(Matrix->array[i]);
     }
@@ -31,7 +31,7 @@ void destructor(struct matrix *Matrix) {
 //
 //
 //
-struct matrix *summarize(struct matrix *Matrix1, struct matrix *Matrix2) {
+matrix *summarize(matrix *Matrix1, matrix *Matrix2) {
     if ((Matrix1->size_m != Matrix2->size_m) || (Matrix1->size_n != Matrix2->size_n)) {
         return NULL;
     }
@@ -47,11 +47,11 @@ struct matrix *summarize(struct matrix *Matrix1, struct matrix *Matrix2) {
 //
 //
 //
-struct matrix *difference(struct matrix *Matrix1, struct matrix *Matrix2) {
+matrix *difference(matrix *Matrix1, matrix *Matrix2) {
     if ((Matrix1->size_m != Matrix2->size_m) || (Matrix1->size_n != Matrix2->size_n)) {
         return NULL;
     }
-    struct matrix *Matrix = newMatrix(Matrix1->size_n, Matrix1->size_m);
+    matrix *Matrix = newMatrix(Matrix1->size_n, Matrix1->size_m);
     for (int i = 0; i < Matrix1->size_n; ++i) {
         for (int j = 0; j < Matrix1->size_m; j++) {
             Matrix->array[i][j] = Matrix1->array[i][j] - Matrix2->array[i][j];
@@ -63,7 +63,7 @@ struct matrix *difference(struct matrix *Matrix1, struct matrix *Matrix2) {
 //
 //
 //
-struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2) {
+matrix *fillRandom(matrix *Matrix, int d1, int d2) {
     srand(time(NULL));
     for (int i = 0; i < Matrix->size_n; i++) {
         for (int j = 0; j < Matrix->size_m; j++) {
@@ -76,11 +76,11 @@ struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2) {
 //
 //
 //
-struct matrix *multiplication(struct matrix *Matrix1, struct matrix *Matrix2) {
+matrix *multiplication(matrix *Matrix1, matrix *Matrix2) {
     if (Matrix1->size_m != Matrix2->size_n) {
         return NULL;
     }
-    struct matrix *Matrix = newMatrix(Matrix1->size_n, Matrix2->size_m);
+    matrix *Matrix = newMatrix(Matrix1->size_n, Matrix2->size_m);
     for (int i = 0; i < Matrix1->size_n; i++) {
         for (int j = 0; j < Matrix2->size_m; j++) {
             Matrix->array[i][j] = 0;
@@ -95,8 +95,8 @@ struct matrix *multiplication(struct matrix *Matrix1, struct matrix *Matrix2) {
 //
 //
 //
-struct matrix *transposition(struct matrix *Matrix) {
-    struct matrix *Tmatrix = newMatrix(Matrix->size_m, Matrix->size_n);
+matrix *transposition(matrix *Matrix) {
+    matrix *Tmatrix = newMatrix(Matrix->size_m, Matrix->size_n);
     for (int i = 0; i < Matrix->size_m; i++) {
         for (int j = 0; j < Matrix->size_n; j++) {
             Tmatrix->array[i][j] = Matrix->array[j][i];
@@ -108,7 +108,7 @@ struct matrix *transposition(struct matrix *Matrix) {
 //
 //
 //
-struct matrix *copy(struct matrix *Matrix, struct matrix *CopyMatrix) {
+matrix *copy(matrix *Matrix, matrix *CopyMatrix) {
     CopyMatrix = newMatrix(Matrix->size_n, Matrix->size_m);
     CopyMatrix->array = Matrix->array;
     return CopyMatrix;
@@ -117,11 +117,13 @@ struct matrix *copy(struct matrix *Matrix, struct matrix *CopyMatrix) {
 //
 //
 //
-void showMatrix(struct matrix *Matrix) {
-    for (int i = 0; i < Matrix->size_n; i++) {
-        for (int j = 0; j < Matrix->size_m; j++) {
-            printf("%d ", Matrix->array[i][j]);
+void showMatrix(matrix *Matrix) {
+    if (Matrix != NULL) {
+        for (int i = 0; i < Matrix->size_n; i++) {
+            for (int j = 0; j < Matrix->size_m; j++) {
+                printf("%d ", Matrix->array[i][j]);
+            }
+            printf("\n");
         }
-        printf("\n");
     }
 }

@@ -8,23 +8,32 @@
 
 int main() {
     struct matrix *Matrix = newMatrix(2, 4);
-
     fillRandom(Matrix, 10, 50);
+    printf("Матрица №1 :\n");
     showMatrix(Matrix);
     printf("\n\n");
+    printf("Транспонированная матрица 2х4 :\n");
     Matrix = transposition(Matrix);
     showMatrix(Matrix);
+    printf("\n\n");
 
     struct matrix *Matrix3 = newMatrix(3, 3);
     struct matrix *Matrix4 = newMatrix(3, 3);
-    Matrix3 = fillRandom(Matrix3, 4, 5);
-    Matrix4 = fillRandom(Matrix4, 2, 4);
+    Matrix3 = fillRandom(Matrix3, 1, 9);
+    Matrix4 = fillRandom(Matrix4, 10, 19);
+
+    printf("Матрица №2 :\n");
     showMatrix(Matrix3);
+    printf("Матрица №3 :\n");
     showMatrix(Matrix4);
     struct matrix *MatrixProducts;
     MatrixProducts = summarize(Matrix3, Matrix4);
+    printf("Сумма матриц №3 и №4 :\n");
     showMatrix(MatrixProducts);
-    printf("fff");
+    MatrixProducts = multiplication(Matrix3, Matrix4);
+    printf("\n\n");
+    printf("Произведение матриц №3 и №4 :\n");
+    showMatrix(MatrixProducts);
 
    /* struct matrix *Matrix1 = newMatrix(3, 3);
     struct matrix *Matrix2 = newMatrix(3, 1);

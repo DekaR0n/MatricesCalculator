@@ -4,11 +4,11 @@
 #include "stdio.h"
 #include <stdlib.h>
 
-struct matrix {
+typedef struct matrix {
     int size_n;
     int size_m;
     int **array;
-};
+} matrix;
 
 struct matrix *newMatrix(int size_n, int size_m);
 
