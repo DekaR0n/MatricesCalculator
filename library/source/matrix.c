@@ -35,7 +35,7 @@ matrix *summarize(matrix *Matrix1, matrix *Matrix2) {
     if ((Matrix1->size_m != Matrix2->size_m) || (Matrix1->size_n != Matrix2->size_n)) {
         return NULL;
     }
-    struct matrix *Matrix = newMatrix(Matrix1->size_n, Matrix1->size_m);
+    matrix *Matrix = newMatrix(Matrix1->size_n, Matrix1->size_m);
     for (int i = 0; i < Matrix1->size_n; ++i) {
         for (int j = 0; j < Matrix1->size_m; j++) {
             Matrix->array[i][j] = Matrix1->array[i][j] + Matrix2->array[i][j];

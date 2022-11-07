@@ -10,22 +10,22 @@ typedef struct matrix {
     int **array;
 } matrix;
 
-struct matrix *newMatrix(int size_n, int size_m);
+matrix *newMatrix(int size_n, int size_m);
 
-void destructor(struct matrix *Matrix);
+void destructor(matrix *Matrix);
 
-struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2);
+matrix *fillRandom(matrix *Matrix, int d1, int d2);
 
-struct matrix *summarize(struct matrix *Matrix1, struct matrix *Matrix2);
+matrix *summarize(matrix *Matrix1, matrix *Matrix2);
 
-struct matrix *difference(struct matrix *Matrix1, struct matrix *Matrix2);
+matrix *difference(matrix *Matrix1, matrix *Matrix2);
 
-struct matrix *multiplication(struct matrix *Matrix1, struct matrix *Matrix2);
+matrix *multiplication(matrix *Matrix1, matrix *Matrix2);
 
-struct matrix *transposition(struct matrix *Matrix);
+matrix *transposition(matrix *Matrix);
 
-struct matrix *copy(struct matrix *Matrix, struct matrix *CopyMatrix);
+matrix *copy(matrix *Matrix, matrix *CopyMatrix);
 
-void showMatrix(struct matrix *Matrix);
+void showMatrix(matrix *Matrix);
 
 #endif //__matrixlib__

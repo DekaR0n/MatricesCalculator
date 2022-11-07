@@ -7,7 +7,7 @@
 #include "../library/source/matrix.c"
 
 int main() {
-    struct matrix *Matrix = newMatrix(2, 4);
+    matrix *Matrix = newMatrix(2, 4);
     fillRandom(Matrix, 10, 50);
     printf("Матрица №1 :\n");
     showMatrix(Matrix);
@@ -17,8 +17,8 @@ int main() {
     showMatrix(Matrix);
     printf("\n\n");
 
-    struct matrix *Matrix3 = newMatrix(3, 3);
-    struct matrix *Matrix4 = newMatrix(3, 3);
+    matrix *Matrix3 = newMatrix(3, 3);
+    matrix *Matrix4 = newMatrix(3, 3);
     Matrix3 = fillRandom(Matrix3, 1, 9);
     Matrix4 = fillRandom(Matrix4, 10, 19);
 
@@ -26,7 +26,7 @@ int main() {
     showMatrix(Matrix3);
     printf("Матрица №3 :\n");
     showMatrix(Matrix4);
-    struct matrix *MatrixProducts;
+    matrix *MatrixProducts;
     MatrixProducts = summarize(Matrix3, Matrix4);
     printf("Сумма матриц №3 и №4 :\n");
     showMatrix(MatrixProducts);
