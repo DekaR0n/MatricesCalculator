@@ -24,6 +24,7 @@ int main() {
     struct matrix *MatrixProducts;
     MatrixProducts = summarize(Matrix3, Matrix4);
     showMatrix(MatrixProducts);
+    printf("fff");
 
    /* struct matrix *Matrix1 = newMatrix(3, 3);
     struct matrix *Matrix2 = newMatrix(3, 1);

@@ -20,7 +20,7 @@ struct matrix *summarize(struct matrix *Matrix1, struct matrix *Matrix2);
 
 struct matrix *difference(struct matrix *Matrix1, struct matrix *Matrix2);
 
-struct matrix *product(struct matrix *Matrix1, struct matrix *Matrix2);
+struct matrix *multiplication(struct matrix *Matrix1, struct matrix *Matrix2);
 
 struct matrix *transposition(struct matrix *Matrix);
 

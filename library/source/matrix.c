@@ -76,7 +76,7 @@ struct matrix *fillRandom(struct matrix *Matrix, int d1, int d2) {
 //
 //
 //
-struct matrix *product(struct matrix *Matrix1, struct matrix *Matrix2) {
+struct matrix *multiplication(struct matrix *Matrix1, struct matrix *Matrix2) {
     if (Matrix1->size_m != Matrix2->size_n) {
         return NULL;
     }
